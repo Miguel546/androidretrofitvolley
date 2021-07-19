@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">RetrofitVolley</string>
+    <string name="error_network_connect" translatable="false">Sin internet, verifique su conexión a Internet</string>
+    <string name="reload">Volver a cargar</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="detalle_persona">Detalle Persona</string>
+    <string name="address">Address</string>
+    <string name="company">Company</string>
+    <string name="listado_personas">Listado Personas</string>
+    <string name="traer_lista">Traer lista Retrofit</string>
+    <string name="traer_lista_volley">Traer lista Volley</string>
+    <string name="haga_click_en_el_boton_para_traer_la_data">Haga click en el boton para traer la data</string>
+    <string name="ultimo_actualizacion">Ultimo actualizacion</string>
+</resources>

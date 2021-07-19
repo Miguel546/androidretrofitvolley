@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="usuario"
+            type="com.luismiguel.retrofitvolley.model.bean.UserItem" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activity.DetailActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Light">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="@font/noto_regular"
+                    android:gravity="center"
+                    android:text="@string/detalle_persona"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/appbar"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Id: ` + usuario.id}"
+                android:background="@drawable/background_border_gray"/>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_border_gray"
+                android:text="@{`Name: ` + usuario.name}" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_border_gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Username: ` + usuario.username}" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_border_gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Email: ` + usuario.email}" />
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_border_gray"
+                android:layout_height="wrap_content"
+                android:text="@string/address" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:background="@drawable/background_border_gray"
+                android:layout_height="wrap_content"
+                android:text="@{`City: ` + usuario.address.city}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/Lat"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_border_gray"
+                    android:text="@{`Lat: ` + usuario.address.geo.lat}" />
+
+                <TextView
+                    android:id="@+id/Lng"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_border_gray"
+                    android:text="@{`Lng: ` +  usuario.address.geo.lng}" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/street"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_border_gray"
+                android:layout_height="wrap_content"
+                android:text="@{`Street: ` + usuario.address.street}" />
+
+            <TextView
+                android:id="@+id/suite"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_border_gray"
+                android:layout_height="wrap_content"
+
+                android:text="@{`Suite: ` +  usuario.address.suite}" />
+
+            <TextView
+                android:id="@+id/zipCode"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_border_gray"
+                android:layout_height="wrap_content"
+                android:text="@{`Zip Code: ` + usuario.address.zipcode}" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_border_gray"
+                android:layout_height="wrap_content"
+                android:text="@{`Phone: ` +  usuario.phone}" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_border_gray"
+                android:layout_height="wrap_content"
+                android:text="@{`Website: ` + usuario.website}" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_border_gray"
+                android:layout_height="wrap_content"
+                android:text="@string/company" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:background="@drawable/background_border_gray"
+                android:layout_height="wrap_content"
+                android:text="@{`Name: ` + usuario.company.name}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:background="@drawable/background_border_gray"
+                android:layout_height="wrap_content"
+                android:text="@{`Catch Phrase: ` +  usuario.company.catchPhrase}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:background="@drawable/background_border_gray"
+                android:layout_height="wrap_content"
+                android:text="@{`BS: ` + usuario.company.bs}" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>
