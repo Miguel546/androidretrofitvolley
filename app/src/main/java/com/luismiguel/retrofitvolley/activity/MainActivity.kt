@@ -69,9 +69,7 @@ class MainActivity : AppCompatActivity(), MainAdapter.OnItemClickListener {
                     error.stackTrace
                 }
             )
-
-            val queue = Volley.newRequestQueue(this, OkHttp3Stack())
-            queue.add(stringRequest)
+            
             MySingleton.getInstance(this).addToRequestQueue(stringRequest)
         }
 
