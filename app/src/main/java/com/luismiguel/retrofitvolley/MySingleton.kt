@@ -7,6 +7,10 @@ import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.ImageLoader
 import com.android.volley.toolbox.Volley
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MySingleton constructor(context: Context) {
     companion object {
@@ -34,9 +38,11 @@ class MySingleton constructor(context: Context) {
     val requestQueue: RequestQueue by lazy {
         // applicationContext is key, it keeps you from leaking the
         // Activity or BroadcastReceiver if someone passes one in.
-        Volley.newRequestQueue(context.applicationContext)
+        //Volley.newRequestQueue(context.applicationContext, OkHttp3Stack(loggingInterceptor))
+        Volley.newRequestQueue(context.applicationContext, OkHttp3Stack())
     }
     fun <T> addToRequestQueue(req: Request<T>) {
         requestQueue.add(req)
+        requestQueue.cache.clear()
     }
 }

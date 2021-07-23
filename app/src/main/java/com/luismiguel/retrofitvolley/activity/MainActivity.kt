@@ -10,10 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.Response as Responseolley
 import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.luismiguel.retrofitvolley.api.IRetrofit
 import com.luismiguel.retrofitvolley.BuildConfig
 import com.luismiguel.retrofitvolley.MySingleton
+import com.luismiguel.retrofitvolley.OkHttp3Stack
 import com.luismiguel.retrofitvolley.R
 import com.luismiguel.retrofitvolley.adapter.MainAdapter
 import com.luismiguel.retrofitvolley.model.bean.UserItem
@@ -54,7 +56,7 @@ class MainActivity : AppCompatActivity(), MainAdapter.OnItemClickListener {
             val stringRequest = StringRequest(
                 Request.Method.GET, url,
                 Responseolley.Listener { response ->
-                    Log.i("volley", response.toString())
+                    //Log.i("volley", response.toString())
                     val lista : List<UserItem> = Gson().fromJson(response.toString(), Users::class.java)
                     mainAdapter.bindData(lista)
                     rvUsuarios.layoutManager = LinearLayoutManager(applicationContext)
@@ -67,6 +69,9 @@ class MainActivity : AppCompatActivity(), MainAdapter.OnItemClickListener {
                     error.stackTrace
                 }
             )
+
+            val queue = Volley.newRequestQueue(this, OkHttp3Stack())
+            queue.add(stringRequest)
             MySingleton.getInstance(this).addToRequestQueue(stringRequest)
         }
 
